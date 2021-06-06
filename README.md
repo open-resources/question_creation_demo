@@ -34,7 +34,7 @@ pathstr = 'input_md/q01_multiple-choice/q01_multiple-choice.md'
 
 # Set the input and output paths (no need to change)
 input_path = pathlib.Path(pathstr)
-output_path= pathlib.Path(pathstr.replace('input_md','output_pl'))
+output_path= pathlib.Path(pathstr.replace('input_md','output_pl')).parent
 
 # Convert from markdown to PL
 pbs.process_question(input_path, output_path)
