@@ -2,27 +2,40 @@
 title: Distance travelled
 author: Firas Moosvi
 source: original
-template_version: 0.2
+template_version: 0.5
+attribution: standard
 outcomes:
-- LO.kinematics.2305
-- LO.kinematics.2304
+- 6.1.1.0
+- 6.1.1.1
+difficulty:
+- undefined
+randomization:
+- undefined
+taxonomy:
+- undefined
 tags:
-- quiz
-- homework
+- unknown
 assets:
 server: |
     import random
     import pandas as pd
-    
+    import problem_bank_helpers as pbh
+    from collections import defaultdict
+    nested_dict = lambda: defaultdict(nested_dict)
+
+    # Start problem code
+
+    data2 = nested_dict()
+
     # define or load names/items/objects
     names = pd.read_csv("data/names.csv")["Names"].tolist()
     manual_vehicles = pd.read_csv("data/manual_vehicles.csv")["Manual Vehicles"].tolist()
 
     # store phrases etc
-    data["vars"]["name"] = random.choice(names)
-    data["vars"]["vehicle"] = random.choice(manual_vehicles)
-    data["vars"]["title"] = "Distance travelled"
-    data["vars"]["units"] = "m/s"
+    data["params"]["vars"]["name"] = random.choice(names)
+    data["params"]["vars"]["vehicle"] = random.choice(manual_vehicles)
+    data["params"]["vars"]["title"] = "Distance travelled"
+    data["params"]["vars"]["units"] = "m/s"
 
     # define bounds of the variables
     v = random.randint(2,7)
@@ -33,11 +46,11 @@ server: |
     data["params"]["t"] = t
 
     # define possible answers
-    data["params"]["part1"]["ans1"] = v*t
-    data["params"]["part1"]["ans2"] = v+t
-    data["params"]["part1"]["ans3"] = v/t
-    data["params"]["part1"]["ans4"] = v-t
-    data["params"]["part1"]["ans5"] = 1.3*(v-t)
+    data["params"]["part1"]["ans1"] = pbh.roundp(v*t)
+    data["params"]["part1"]["ans2"] = pbh.roundp(v+t)
+    data["params"]["part1"]["ans3"] = pbh.roundp(v/t)
+    data["params"]["part1"]["ans4"] = pbh.roundp(v-t)
+    data["params"]["part1"]["ans5"] = pbh.roundp(1.3*(v-t))
     
     # define correct answers
     data["params"]["part1"]["correct_answer"] = data["params"]["part1"]["ans1"]
@@ -51,16 +64,16 @@ part1:
 
 ## Question Text
 
-{{ vars.name }} is traveling on {{ vars.vehicle }} at {{ params.v }} {{ vars.units }}.
-How far does {{ vars.name }} travel in {{ params.t }} seconds, assuming they continue at the same velocity?
+{{ params.vars.name }} is traveling on {{ params.vars.vehicle }} at {{ params.v }} {{ params.vars.units }}.
+How far does {{ params.vars.name }} travel in {{ params.t }} seconds, assuming they continue at the same velocity?
 
 ## Answer Section
 
-- {{ params.part1.ans1}} {{ vars.units}} 
-- {{ params.part1.ans2}} {{ vars.units}} 
-- {{ params.part1.ans3}} {{ vars.units}} 
-- {{ params.part1.ans4}} {{ vars.units}} 
-- {{ params.part1.ans5}} {{ vars.units}} 
+- {{ params.part1.ans1}} {{ params.vars.units}} 
+- {{ params.part1.ans2}} {{ params.vars.units}} 
+- {{ params.part1.ans3}} {{ params.vars.units}} 
+- {{ params.part1.ans4}} {{ params.vars.units}} 
+- {{ params.part1.ans5}} {{ params.vars.units}} 
 
 ## Rubric
 

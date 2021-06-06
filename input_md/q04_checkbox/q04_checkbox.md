@@ -2,18 +2,24 @@
 title: Vectors and Scalars
 topic: Vectors
 author: Firas Moosvi
-source: original
-template_version: 0.2
+template_version: 0.5
+attribution: standard
 outcomes:
-- LO.kinematics.2305
-- LO.kinematics.2304
+- 6.1.1.0
+- 6.1.1.1
+difficulty:
+- undefined
+randomization:
+- undefined
+taxonomy:
+- undefined
 tags:
-- kinematics
-- test
+- unknown
 assets:
 server: |
     import random
     import pandas as pd
+    import problem_bank_helpers as pbh
     from collections import defaultdict
     nested_dict = lambda: defaultdict(nested_dict)
 
@@ -25,6 +31,7 @@ server: |
     names = pd.read_csv("data/names.csv")["Names"].tolist()
 
     # store phrases etc
+    data2["params"]["vars"]["title"] = 'Vectors and Scalars'
     data2["params"]["vars"]["name"] = random.choice(names)
 
     # define useful variables/lists
@@ -89,12 +96,12 @@ Select all the choices that apply.
 
 Note: You will be awarded full marks only if you select all the correct choices, and none of the incorrect choices. Choosing incorrect choices as well as not choosing correct choices will result in deductions.
 
-- {{ params.part1.ans1}} 
-- {{ params.part1.ans2}} 
-- {{ params.part1.ans3}} 
-- {{ params.part1.ans4}} 
-- {{ params.part1.ans5}} 
-- {{ params.part1.ans6}}
+- {{ params.part1.ans1.value}} 
+- {{ params.part1.ans2.value}} 
+- {{ params.part1.ans3.value}} 
+- {{ params.part1.ans4.value}} 
+- {{ params.part1.ans5.value}} 
+- {{ params.part1.ans6.value}}
 
 ## Rubric
 

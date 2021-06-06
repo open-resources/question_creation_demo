@@ -3,13 +3,19 @@ title: Integer Math
 topic: Math
 author: Firas Moosvi
 source: original
-template_version: 0.2
+template_version: 0.5
+attribution: standard
 outcomes:
-- LO.multiplication.2305
-- LO.multiplication.2304
+- 6.1.1.0
+- 6.1.1.1
+difficulty:
+- undefined
+randomization:
+- undefined
+taxonomy:
+- undefined
 tags:
-- quiz
-- homework
+- unknown
 assets:
 server: |
     import random

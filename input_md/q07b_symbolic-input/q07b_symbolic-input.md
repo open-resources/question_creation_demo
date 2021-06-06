@@ -2,14 +2,19 @@
 title: Symbolic Input 2 - Trig
 topic: example
 author: Michael Kudla
-source: original
-template_version: 0.2
+template_version: 0.5
+attribution: standard
 outcomes:
-- LO.kinematics.2305
-- LO.kinematics.2304
+- 6.1.1.0
+- 6.1.1.1
+difficulty:
+- undefined
+randomization:
+- undefined
+taxonomy:
+- undefined
 tags:
-- quiz
-- homework
+- unknown
 assets:
 server: |
     import random
@@ -28,6 +33,7 @@ server: |
     vehicles = pd.read_csv("data/vehicles.csv")["Vehicles"].tolist()
 
     # store phrases etc
+    data2["params"]["vars"]["title"] = 'Symbolic Input 2 - Trig'
     data2["params"]["vars"]["name"] = random.choice(names)
     data2["params"]["vars"]["vehicle"] = random.choice(vehicles)
 
@@ -50,7 +56,7 @@ part1:
     weight: 1
     allow-blank: true
 ---
-# {{ vars.title }}
+# {{ params.vars.title }}
 
 ## Question Text
 
@@ -72,7 +78,7 @@ Note that it may not be necessary to use every variable. Use the following table
 
 ### Answer Section
 
-{{ substitutions.part1.label }}
+TODO: implement copying of the 'label' field to the substitutions.
 
 ## Rubric
 

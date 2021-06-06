@@ -3,17 +3,26 @@ title: Multi-part Question
 topic: kinematics
 author: Firas Moosvi
 source: original
-template_version: 0.2
+template_version: 0.5
+attribution: standard
 outcomes:
-- LO.kinematics.2305
-- LO.kinematics.2304
+- 6.1.1.0
+- 6.1.1.1
+difficulty:
+- undefined
+randomization:
+- undefined
+taxonomy:
+- undefined
 tags:
-- quiz
-- homework
+- unknown
 assets:
+- test1.png
+- test2.png
 server: |
     import random
     import pandas as pd
+    import problem_bank_helpers as pbh
     from collections import defaultdict
     nested_dict = lambda: defaultdict(nested_dict)
 
@@ -47,22 +56,22 @@ server: |
     ## Part 2
 
     # define possible answers
-    data2["params"]["part2"]["ans1"]["value"] = 42
+    data2["params"]["part2"]["ans1"]["value"] = pbh.roundp(42)
     data2["params"]["part2"]["ans1"]["correct"] = False
 
-    data2["params"]["part2"]["ans2"]["value"] = v*t
+    data2["params"]["part2"]["ans2"]["value"] = pbh.roundp(v*t)
     data2["params"]["part2"]["ans2"]["correct"] = True
 
-    data2["params"]["part2"]["ans3"]["value"] = v+t
+    data2["params"]["part2"]["ans3"]["value"] = pbh.roundp(v+t)
     data2["params"]["part2"]["ans3"]["correct"] = False
 
-    data2["params"]["part2"]["ans4"]["value"] = v/t
+    data2["params"]["part2"]["ans4"]["value"] = pbh.roundp(v/t)
     data2["params"]["part2"]["ans4"]["correct"] = False
 
-    data2["params"]["part2"]["ans5"]["value"] = v-t
+    data2["params"]["part2"]["ans5"]["value"] = pbh.roundp(v-t)
     data2["params"]["part2"]["ans5"]["correct"] = False
 
-    data2["params"]["part2"]["ans6"]["value"] = 1.3*(v-t)
+    data2["params"]["part2"]["ans6"]["value"] = pbh.roundp(1.3*(v-t))
     data2["params"]["part2"]["ans6"]["correct"] = False
 
     # Update the data object with a new dict
@@ -96,12 +105,12 @@ How far does {{ params.vars.name }} travel in {{ params.t }} seconds, assuming t
 
 ### Answer Section
 
-- {{ params.part2.ans1}} {{ params.vars.units}} 
-- {{ params.part2.ans2}} {{ params.vars.units}} 
-- {{ params.part2.ans3}} {{ params.vars.units}} 
-- {{ params.part2.ans4}} {{ params.vars.units}} 
-- {{ params.part2.ans5}} {{ params.vars.units}} 
-- {{ params.part2.ans6}} {{ params.vars.units}} 
+- {{ params.part2.ans1.value}} {{ params.vars.units}} 
+- {{ params.part2.ans2.value}} {{ params.vars.units}} 
+- {{ params.part2.ans3.value}} {{ params.vars.units}} 
+- {{ params.part2.ans4.value}} {{ params.vars.units}} 
+- {{ params.part2.ans5.value}} {{ params.vars.units}} 
+- {{ params.part2.ans6.value}} {{ params.vars.units}} 
 
 ## Rubric
 

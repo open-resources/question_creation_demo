@@ -3,13 +3,19 @@ title: Centripetal Motion
 topic: centripetal motion
 author: Michael Kudla
 source: original
-template_version: 0.2
+template_version: 0.5
+attribution: standard
 outcomes:
-- LO.kinematics.2305
-- LO.kinematics.2304
+- 6.1.1.0
+- 6.1.1.1
+difficulty:
+- undefined
+randomization:
+- undefined
+taxonomy:
+- undefined
 tags:
-- quiz
-- homework
+- unknown
 assets:
 server: |
     import random    
@@ -21,6 +27,9 @@ server: |
     # Start problem code
 
     data2 = nested_dict()
+
+    # store phrases etc
+    data2["params"]["vars"]["title"] = 'Centripetal Motion'
 
     # Declare math symbols to be used by sympy
     m, v, r = sympy.symbols('m v r')
@@ -41,7 +50,7 @@ part1:
     weight: 1
     allow-blank: false
 ---
-# {{ vars.title }}
+# {{ params.vars.title }}
 
 ## Question Text
 

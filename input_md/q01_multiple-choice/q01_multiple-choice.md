@@ -3,17 +3,24 @@ title: Distance travelled
 topic: Kinematics
 author: Firas Moosvi
 source: original
-template_version: 0.2
+template_version: 0.5
+attribution: standard
 outcomes:
-- 3.3.1.0
-- 3.3.1.1
+- 6.1.1.0
+- 6.1.1.1
+difficulty:
+- undefined
+randomization:
+- undefined
+taxonomy:
+- undefined
 tags:
-- quiz
-- homework
+- unknown
 assets:
 server: |
     import random
     import pandas as pd
+    import problem_bank_helpers as pbh
     from collections import defaultdict
     nested_dict = lambda: defaultdict(nested_dict)
 
@@ -26,6 +33,7 @@ server: |
     manual_vehicles = pd.read_csv("data/manual_vehicles.csv")["Manual Vehicles"].tolist()
 
     # store phrases etc
+    data2["params"]["vars"]["title"] = 'Kinematics'
     data2["params"]["vars"]["name"] = random.choice(names)
     data2["params"]["vars"]["vehicle"] = random.choice(manual_vehicles)
     data2["params"]["vars"]["units"] = "m/s"
@@ -39,22 +47,22 @@ server: |
     data2["params"]["t"] = t
 
     # define possible answers
-    data2["params"]["part1"]["ans1"]["value"] = 42
+    data2["params"]["part1"]["ans1"]["value"] = pbh.roundp(42)
     data2["params"]["part1"]["ans1"]["correct"] = False
 
-    data2["params"]["part1"]["ans2"]["value"] = v*t
+    data2["params"]["part1"]["ans2"]["value"] = pbh.roundp(v*t)
     data2["params"]["part1"]["ans2"]["correct"] = True
 
-    data2["params"]["part1"]["ans3"]["value"] = v+t
+    data2["params"]["part1"]["ans3"]["value"] = pbh.roundp(v+t)
     data2["params"]["part1"]["ans3"]["correct"] = False
 
-    data2["params"]["part1"]["ans4"]["value"] = v/t
+    data2["params"]["part1"]["ans4"]["value"] = pbh.roundp(v/t)
     data2["params"]["part1"]["ans4"]["correct"] = False
 
-    data2["params"]["part1"]["ans5"]["value"] = v-t
+    data2["params"]["part1"]["ans5"]["value"] = pbh.roundp(v-t)
     data2["params"]["part1"]["ans5"]["correct"] = False
 
-    data2["params"]["part1"]["ans6"]["value"] = 1.3*(v-t)
+    data2["params"]["part1"]["ans6"]["value"] = pbh.roundp(1.3*(v-t))
     data2["params"]["part1"]["ans6"]["correct"] = False
     
     # Update the data object with a new dict

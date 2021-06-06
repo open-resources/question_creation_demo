@@ -3,17 +3,24 @@ title: Distance travelled
 topic: kinematics
 author: Firas Moosvi
 source: original
-template_version: 0.2
+template_version: 0.5
+attribution: standard
 outcomes:
-- LO.kinematics.2305
-- LO.kinematics.2304
+- 6.1.1.0
+- 6.1.1.1
+difficulty:
+- undefined
+randomization:
+- undefined
+taxonomy:
+- undefined
 tags:
-- quiz
-- homework
+- unknown
 assets:
 server: |
     import random
     import pandas as pd
+    import problem_bank_helpers as pbh
     from collections import defaultdict
     nested_dict = lambda: defaultdict(nested_dict)
 
