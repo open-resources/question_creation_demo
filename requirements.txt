@@ -1,0 +1,7 @@
+pandas
+PyYAML
+docopt
+numpy
+markdown-it-py
+mdformat
+sympy
