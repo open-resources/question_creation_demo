@@ -1,17 +1,16 @@
-
 # Open Problem Bank - Physics
 
 This repository is a bare-bones demo of how to create problems in PrairieLearn using a single markdown file (plus any images or assets that are needed).
 
 ## Installation 
 
-It is recommended that you clone this repository locally first using the Terminal (For Windows, [GitBash](https://gitforwindows.org) is recommended):
+1. It is recommended that you clone this repository locally first using the Terminal (For Windows, [GitBash](https://gitforwindows.org) is recommended):
 
 ```bash 
 git clone https://github.com/open-resources/question_creation_demo.git
 ```
 
-Then you will need to install the `problem_bank_scripts` python package using `pip`:
+2. You will need to install the `problem_bank_scripts` python package using `pip`:
 
 ```bash 
 pip install problem_bank_scripts
@@ -23,7 +22,9 @@ In case you had an older version of this package installed (it is being actively
 pip install problem_bank_scripts --upgrade
 ```
 
-To convert one of the sample markdown files to the PrairieLearn syntax, open a Jupyter notebook or Lab session (or just use the provided [`demo.ipynb`](demo.ipynb) file) and run this in a cell:
+3. Download/copy the `problem_bank_helpers.py` file into the same directory you're running the notebook/python session from now. In the future, this will be integrated into `problem_bank_scripts`
+
+4. To convert one of the sample markdown files to the PrairieLearn syntax, open a Jupyter notebook or Lab session (or just use the provided [`demo.ipynb`](demo.ipynb) file) and run this in a cell:
 
 ```bash
 import problem_bank_scripts as pbs
