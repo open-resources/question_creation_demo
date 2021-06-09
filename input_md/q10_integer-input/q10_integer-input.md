@@ -47,7 +47,7 @@ server: |
 part1:
   type: number-input
   label: $d=$
-  pl-options:
+  pl-customizations:
     weight: 1
     allow-blank: true
 ---

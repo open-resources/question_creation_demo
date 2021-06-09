@@ -46,18 +46,31 @@ server: |
     data["params"]["t"] = t
 
     # define possible answers
-    data["params"]["part1"]["ans1"] = pbh.roundp(v*t)
-    data["params"]["part1"]["ans2"] = pbh.roundp(v+t)
-    data["params"]["part1"]["ans3"] = pbh.roundp(v/t)
-    data["params"]["part1"]["ans4"] = pbh.roundp(v-t)
-    data["params"]["part1"]["ans5"] = pbh.roundp(1.3*(v-t))
+    data2["params"]["part1"]["ans1"]["value"] = pbh.roundp(42)
+    data2["params"]["part1"]["ans1"]["correct"] = False
+
+    data2["params"]["part1"]["ans2"]["value"] = pbh.roundp(v*t)
+    data2["params"]["part1"]["ans2"]["correct"] = True
+
+    data2["params"]["part1"]["ans3"]["value"] = pbh.roundp(v+t)
+    data2["params"]["part1"]["ans3"]["correct"] = False
+
+    data2["params"]["part1"]["ans4"]["value"] = pbh.roundp(v/t)
+    data2["params"]["part1"]["ans4"]["correct"] = False
+
+    data2["params"]["part1"]["ans5"]["value"] = pbh.roundp(v-t)
+    data2["params"]["part1"]["ans5"]["correct"] = False
+
+    data2["params"]["part1"]["ans6"]["value"] = pbh.roundp(1.3*(v-t))
+    data2["params"]["part1"]["ans6"]["correct"] = False
     
     # define correct answers
     data["params"]["part1"]["correct_answer"] = data["params"]["part1"]["ans1"]
 part1:
   type: dropdown
-  pl-options:
+  pl-customizations:
     weight: 1
+    blank: "true"
     allow-blank: true
 ---
 # {{ params.vars.title }}
