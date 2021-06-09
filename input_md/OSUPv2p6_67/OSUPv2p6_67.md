@@ -3,12 +3,12 @@ title: Multi-part Question
 topic: kinematics
 author: Jake Bobowski
 source:
-- underfined
+- undefined
 template_version: 0.5
 attribution:
-- underfined 
+- "openstax-physics-vol2"
 outcomes:
-- underfined
+- undefined
 difficulty:
 - undefined
 randomization:
@@ -55,13 +55,15 @@ server: |
     
     # define possible answers
     
-    data2["params"]["part2"]["ans1"] = 'points towards the negative plate'
-    data2["params"]["part2"]["ans2"] = 'points towards the positive plate'
-    data2["params"]["part2"]["ans3"] = 'points parallel to the plates'
-    
-    # define correct answers
-    data2["params"]["part2"]["correct_answer"] = data2["params"]["part2"]["ans1"]
+    data2["params"]["part2"]["ans1"]["value"] = 'points towards the negative plate'
+    data2["params"]["part2"]["ans1"]["correct"] = True
 
+    data2["params"]["part2"]["ans2"]["value"] = 'points towards the positive plate'
+    data2["params"]["part2"]["ans2"]["correct"] = False
+    
+    data2["params"]["part2"]["ans3"]["value"] = 'points parallel to the plates'
+    data2["params"]["part2"]["ans3"]["correct"] = False
+    
     # Update the data object with a new dict
     data.update(data2)
 part1:
@@ -72,31 +74,30 @@ part1:
     weight: 1
 part2:
   type: dropdown  
-  pl-options:
+  pl-customizations:
     weight: 1
-    allow-blank: true
 ---
 # {{ params.vars.title }}
 
 ## Part 1
 
-### Question Text
+Two parallel conducting plates ${{params.L}}\rm cm$ on a side are given equal and opposite charges of magnitude ${{params.q}}\times 10^{ {{params.p}} }\rm C$.  The plates are ${{params.d}}\rm mm$ apart.
 
-Two parallel conducting plates ${{params.L}}\rm\ cm$ on a side are given equal and opposite charges of magnitude ${{params.q}}\times 10^{ {{params.p}} }\rm\ C$.  The plates are ${{params.d}}\rm\ mm$ apart.
-
-What is the electric field at the centre of the region between the plates?
+What is the magnitude of the electric field at the centre of the region between the plates?
 
 ### Answer Section
 
-Please enter in a numeric value
+Please enter a numeric value.
 
 ## Part 2
 
+What is the direction of the electric field at the centre of the region between the plates?
+
 ### Answer Section
 
-- {{ params.part1.ans1}}
-- {{ params.part1.ans2}}
-- {{ params.part1.ans3}}
+- {{ params.part1.ans1.value }}
+- {{ params.part1.ans2.value }}
+- {{ params.part1.ans3.value }}
 
 ## Rubric
 
