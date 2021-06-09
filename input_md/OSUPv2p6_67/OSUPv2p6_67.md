@@ -17,6 +17,7 @@ taxonomy:
 - undefined
 tags:
 - unknown
+assets:
 server: |
     import random, copy, math
     import numpy as np
