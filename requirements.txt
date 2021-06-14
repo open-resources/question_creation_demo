@@ -5,3 +5,4 @@ numpy
 markdown-it-py
 mdformat
 sympy
+problem_bank_helpers

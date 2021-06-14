@@ -10,16 +10,19 @@ This repository is a bare-bones demo of how to create problems in PrairieLearn u
 git clone https://github.com/open-resources/question_creation_demo.git
 ```
 
-2. You will need to install the `problem_bank_scripts` python package using `pip`:
+2. You will need to install the `problem_bank_scripts` and `problem_bank_helpers` python packages using `pip`:
 
 ```bash 
 pip install problem_bank_scripts
+pip install problem_bank_helpers
 ```
 
 In case you had an older version of this package installed (it is being actively developed and things are changing FAST), you can upgrade it instead:
 
 ```bash
 pip install problem_bank_scripts --upgrade
+pip install problem_bank_helpers --upgrade
+
 ```
 
 3. Download/copy the `problem_bank_helpers.py` file into the same directory you're running the notebook/python session from now. In the future, this will be integrated into `problem_bank_scripts`
@@ -28,6 +31,7 @@ pip install problem_bank_scripts --upgrade
 
 ```bash
 import problem_bank_scripts as pbs
+import problem_bank_helpers as pbh
 import pathlib
 
 # Path to the input file (change for different questions)
