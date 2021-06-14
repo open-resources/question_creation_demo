@@ -42,7 +42,7 @@ input_path = pathlib.Path(pathstr)
 output_path= pathlib.Path(pathstr.replace('input_md','output_pl')).parent
 
 # Convert from markdown to PL
-pbs.process_question(input_path, output_path)
+pbs.process_question_pl(input_path, output_path)
 ```
 ## Demo
 
