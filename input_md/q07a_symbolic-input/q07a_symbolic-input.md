@@ -1,9 +1,9 @@
 ---
 title: Centripetal Motion
-topic: centripetal motion
+topic: Template
 author: Michael Kudla
 source: original
-template_version: 0.5
+template_version: 1.0
 attribution: standard
 outcomes:
 - 6.1.1.0
@@ -17,31 +17,40 @@ taxonomy:
 tags:
 - unknown
 assets:
-server: |
-    import random    
-    import prairielearn as pl
-    import sympy
-    from collections import defaultdict
-    nested_dict = lambda: defaultdict(nested_dict)
+server: 
+    imports: |
+        import random
+        import pandas as pd
+        import sympy as sp
+        import prairielearn as pl
+        import problem_bank_helpers as pbh
+        from collections import defaultdict
+        nested_dict = lambda: defaultdict(nested_dict)
+    generate: |
+        # Start problem code
 
-    # Start problem code
+        data2 = nested_dict()
 
-    data2 = nested_dict()
+        # store phrases etc
+        data2["params"]["vars"]["title"] = 'Centripetal Motion'
 
-    # store phrases etc
-    data2["params"]["vars"]["title"] = 'Centripetal Motion'
+        # Declare math symbols to be used by sympy
+        m, v, r = sp.symbols('m v r')
 
-    # Declare math symbols to be used by sympy
-    m, v, r = sympy.symbols('m v r')
-
-    # Describe the solution equation
-    F = m*v**2/r
-    
-    # Answer to fill in the blank input stored as JSON.
-    data2['correct_answers']['part1_ans'] = pl.to_json(F)
-    
-    # Update the data object with a new dict
-    data.update(data2)    
+        # Describe the solution equation
+        F = m*v**2/r
+        
+        # Answer to fill in the blank input stored as JSON.
+        data2['correct_answers']['part1_ans'] = pl.to_json(F)
+        
+        # Update the data object with a new dict
+        data.update(data2)
+    prepare: |
+        pass
+    parse: |
+        pass
+    grade: |
+        pass
 part1:
   type: symbolic-input
   label: $F_r = $
@@ -58,7 +67,7 @@ Write the centripetal force $F_r$ in terms of the mass $m$, velocity $v$, and ra
 
 Note that it may not be necessary to use every variable. Use the following table as a reference for each variable:
 
-| $\LaTeX$ | Use   |
+| $Variable$ | Use   |
 |----------|-------|
 | $m$  | m  |
 | $v$  | v  |
@@ -68,6 +77,14 @@ Note that it may not be necessary to use every variable. Use the following table
 ### Answer Section
 
 {{ substitutions.part1.label }}
+
+## pl-submission-panel
+
+Everything here will get inserted directly into the pl-submission-panel element at the end of the `question.html`.
+
+## pl-answer-panel
+
+Everything here will get inserted directly into an pl-answer-panel element at the end of the `question.html`.
 
 ## Rubric
 

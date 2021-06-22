@@ -1,8 +1,9 @@
 ---
 title: Vectors and Scalars
-topic: Vectors
+topic: Template
 author: Firas Moosvi
-template_version: 0.5
+source: original
+template_version: 1.0
 attribution: standard
 outcomes:
 - 6.1.1.0
@@ -16,67 +17,74 @@ taxonomy:
 tags:
 - unknown
 assets:
-server: |
-    import random
-    import pandas as pd
-    import problem_bank_helpers as pbh
-    from collections import defaultdict
-    nested_dict = lambda: defaultdict(nested_dict)
+server: 
+    imports: |
+        import random
+        import pandas as pd
+        import problem_bank_helpers as pbh
+        from collections import defaultdict
+        nested_dict = lambda: defaultdict(nested_dict)
+    generate: |
+        # Start problem code
 
-    # Start problem code
+        data2 = nested_dict()
 
-    data2 = nested_dict()
+        # define or load names/items/objects
+        names = pd.read_csv("data/names.csv")["Names"].tolist()
 
-    # define or load names/items/objects
-    names = pd.read_csv("data/names.csv")["Names"].tolist()
+        # store phrases etc
+        data2["params"]["vars"]["title"] = 'Vectors and Scalars'
+        data2["params"]["vars"]["name"] = random.choice(names)
 
-    # store phrases etc
-    data2["params"]["vars"]["title"] = 'Vectors and Scalars'
-    data2["params"]["vars"]["name"] = random.choice(names)
+        # define useful variables/lists
+        vectors = ["displacement", "velocity", "acceleration", "momentum", "force", "lift", "drag", "thurst", "weight"]
+        scalars = ["length", "area", "volume", "mass", "density", "pressure", "temperature", "energy", "entropy", "work", "power"]
 
-    # define useful variables/lists
-    vectors = ["displacement", "velocity", "acceleration", "momentum", "force", "lift", "drag", "thurst", "weight"]
-    scalars = ["length", "area", "volume", "mass", "density", "pressure", "temperature", "energy", "entropy", "work", "power"]
+        # Randomly select 2,3,4 scalars and shuffle the lists
+        total_choices = 6
+        num_scalars = random.choice([2,3,4])
+        num_vectors = total_choices - num_scalars
+        select = random.choice(["vectors","scalars"])
 
-    # Randomly select 2,3,4 scalars and shuffle the lists
-    total_choices = 6
-    num_scalars = random.choice([2,3,4])
-    num_vectors = total_choices - num_scalars
-    select = random.choice(["vectors","scalars"])
+        data2["params"]["choice"] = select
 
-    data2["params"]["choice"] = select
+        # Create ans_choices
+        ans_choices = ["ans{0}".format(i+1) for i in range(total_choices)]
 
-    # Create ans_choices
-    ans_choices = ["ans{0}".format(i+1) for i in range(total_choices)]
+        random.shuffle(scalars)
+        random.shuffle(vectors)
 
-    random.shuffle(scalars)
-    random.shuffle(vectors)
+        # define possible answers
+        if select == "vectors":
+            for i in range(num_vectors):
+                choice = ans_choices.pop(0)
+                data2["params"]["part1"][choice]["value"] = vectors.pop()
+                data2["params"]["part1"][choice]["correct"] = True
 
-    # define possible answers
-    if select == "vectors":
-        for i in range(num_vectors):
-            choice = ans_choices.pop(0)
-            data2["params"]["part1"][choice]["value"] = vectors.pop()
-            data2["params"]["part1"][choice]["correct"] = True
+            for i in range(num_scalars):
+                choice = ans_choices.pop(0)
+                data2["params"]["part1"][choice]["value"] = scalars.pop()
+                data2["params"]["part1"][choice]["correct"] = False
 
-        for i in range(num_scalars):
-            choice = ans_choices.pop(0)
-            data2["params"]["part1"][choice]["value"] = scalars.pop()
-            data2["params"]["part1"][choice]["correct"] = False
+        elif select == "scalars":
+            for i in range(num_scalars):
+                choice = ans_choices.pop(0)
+                data2["params"]["part1"][choice]["value"] = scalars.pop()
+                data2["params"]["part1"][choice]["correct"] = True
+                
+            for i in range(num_vectors):
+                choice = ans_choices.pop(0)
+                data2["params"]["part1"][choice]["value"] = vectors.pop()
+                data2["params"]["part1"][choice]["correct"] = False
 
-    elif select == "scalars":
-        for i in range(num_scalars):
-            choice = ans_choices.pop(0)
-            data2["params"]["part1"][choice]["value"] = scalars.pop()
-            data2["params"]["part1"][choice]["correct"] = True
-            
-        for i in range(num_vectors):
-            choice = ans_choices.pop(0)
-            data2["params"]["part1"][choice]["value"] = vectors.pop()
-            data2["params"]["part1"][choice]["correct"] = False
-
-    # Update the data object with a new dict
-    data.update(data2)
+        # Update the data object with a new dict
+        data.update(data2)
+    prepare: |
+        pass
+    parse: |
+        pass
+    grade: |
+        pass
 part1:
   type: checkbox
   pl-customizations:
@@ -102,6 +110,14 @@ Note: You will be awarded full marks only if you select all the correct choices,
 - {{ params.part1.ans4.value}} 
 - {{ params.part1.ans5.value}} 
 - {{ params.part1.ans6.value}}
+
+## pl-submission-panel
+
+Everything here will get inserted directly into the pl-submission-panel element at the end of the `question.html`.
+
+## pl-answer-panel
+
+Everything here will get inserted directly into an pl-answer-panel element at the end of the `question.html`.
 
 ## Rubric
 
