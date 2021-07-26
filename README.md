@@ -50,8 +50,8 @@ There is a [`demo.ipynb`](demo.ipynb) provided to show you the expected usage of
  
 ## Known Limitations
 
-- Currently, images are not supported, is the top priority!
-- Currently, only the generate function is handled, will be adding support for this soon.
+- Only the problem typess in the template are supported
+- There are some weird LaTeX/Markdown rendering issues that we run into. Often using double `\` seems to resolve the issues. For e.g, use `\\frac{a}{b}` instead of `\frac{a}{b}`
  
 ## FAQ
 
