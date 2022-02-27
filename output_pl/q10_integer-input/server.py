@@ -23,19 +23,17 @@ def generate(data):
     # store phrases etc
     data2["params"]["vars"]["name"] = random.choice(names)
     data2["params"]["vars"]["vehicle"] = random.choice(manual_vehicles)
-    data2["params"]["vars"]["title"] = "Distance travelled"
+    data2["params"]["vars"]["title"] = "Integer Math"
     data2["params"]["vars"]["units"] = "m/s"
     
     # define bounds of the variables
-    v = random.randint(2,7)
-    t = random.randint(5,10)
+    n = random.randint(2,100)
     
     # store the variables in the dictionary "params"
-    data2["params"]["v"] = v
-    data2["params"]["t"] = t
+    data2["params"]["n"] = n
     
     # define correct answers
-    data2["correct_answers"]["part1_ans"] = v*t
+    data2["correct_answers"]["part1_ans"] = int(n*10)
     
     
 def prepare(data):

@@ -4,7 +4,15 @@ import problem_bank_helpers as pbh
 from collections import defaultdict
 nested_dict = lambda: defaultdict(nested_dict)
 
+def imports(data):
+    import random
+    import pandas as pd
+    import problem_bank_helpers as pbh
+    from collections import defaultdict
+    nested_dict = lambda: defaultdict(nested_dict)
+    
 def generate(data):
+    # Start problem code
     
     data2 = nested_dict()
     
@@ -45,6 +53,13 @@ def generate(data):
     data2["params"]["part1"]["ans6"]["value"] = pbh.roundp(1.3*(v-t))
     data2["params"]["part1"]["ans6"]["correct"] = False
     
-    # Update the data object with a new dict
-    data.update(data2)
+    
+def prepare(data):
+    pass
+    
+def parse(data):
+    pass
+    
+def grade(data):
+    pass
     

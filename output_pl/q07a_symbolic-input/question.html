@@ -1,17 +1,18 @@
-<pl-question-panel>
-<markdown>
-{{ params.vars.name }} is traveling on {{ params.vars.vehicle }} at {{ params.v }} {{ params.vars.units }}.
-
-</markdown>
-</pl-question-panel>
-
 <pl-hide-in-panel answer="true">
 <pl-question-panel>
-	<markdown>How far does {{ params.vars.name }} travel in {{ params.t }} seconds, assuming they continue at the same velocity?
+	<markdown>Write the centripetal force $F_r$ in terms of the mass $m$, velocity $v$, and radius $r$.
+
+Note that it may not be necessary to use every variable. Use the following table as a reference for each variable:
+
+| $Variable$ | Use   |
+|----------|-------|
+| $m$  | m  |
+| $v$  | v  |
+| $r$  | r  |
 	</markdown>
 </pl-question-panel>
 
-<pl-number-input answers-name="part1_ans" weight = "1" allow-blank = "True" label = "$d= $" suffix = "m" comparison = "sigfig" digits = "2" ></pl-number-input>
+<pl-symbolic-input answers-name="part1_ans" variables = "m, v, r" weight = "1" allow-blank = "False" ></pl-symbolic-input>
 </pl-hide-in-panel>
 <pl-submission-panel>Everything here will get inserted directly into the pl-submission-panel element at the end of the `question.html`.
  </pl-submission-panel>
